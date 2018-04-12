@@ -1,5 +1,5 @@
 import argparse
-from collections import Counter, defaultdict
+from collections import Counter, defaultdict, OrderedDict
 import re
 
 from pprint import pprint
@@ -10,7 +10,7 @@ def process_emojis(emoji_dict, common):
     '''
     common_emojis_per_person = {}
     for name, emoji_list in emoji_dict.items():
-        common_emojis = dict(Counter(emoji_list).most_common(common))
+        common_emojis = OrderedDict(Counter(emoji_list).most_common(common))
         total = len(emoji_list)
         common_emojis_per_person[name] = {'total': total,
                                           'top': common_emojis}
@@ -23,7 +23,7 @@ def process_words(words_dict, common):
     '''
     common_words_per_person = {}
     for name, words_list in words_dict.items():
-        common_words = dict(Counter(words_list).most_common(common))
+        common_words = OrderedDict(Counter(words_list).most_common(common))
         total = len(words_list)
         common_words_per_person[name] = {'total': total,
                                          'top': common_words}

@@ -31,9 +31,17 @@ Print top 5 words in the chat
 ```
 ➜  chat-analyzer git:(master) ✗ python3 analyze.py --filename sample.txt --entity word --common 5
 Analyzed 31 messages
-{'Bar': {'top': {'free?': 1, 'good': 2, 'howdy': 1, 'well,': 1, 'you?': 1},
+{'Bar': {'top': OrderedDict([('good', 2),
+                             ('howdy', 1),
+                             ('you?', 1),
+                             ('free?', 1),
+                             ('well,', 1)]),
          'total': 18},
- 'Foo': {'top': {'good': 2, 'happy': 1, 'hello,': 1, 'now?': 1, 'yes?': 1},
+ 'Foo': {'top': OrderedDict([('good', 2),
+                             ('hello,', 1),
+                             ('yes?', 1),
+                             ('happy', 1),
+                             ('now?', 1)]),
          'total': 11}}
 ```
 
@@ -42,8 +50,8 @@ Print top 5 emojis in the chat
 ```
 ➜  chat-analyzer git:(master) ✗ python3 analyze.py --filename sample.txt --entity emoji --common 5
 Analyzed 31 messages
-{'Bar': {'top': {'👆': 1, '😁': 4, '😂': 3}, 'total': 8},
- 'Foo': {'top': {'🏻': 5, '💦': 1, '😁': 2}, 'total': 8}}
+{'Bar': {'top': OrderedDict([('😁', 4), ('😂', 3), ('👆', 1)]), 'total': 8},
+ 'Foo': {'top': OrderedDict([('🏻', 5), ('😁', 2), ('💦', 1)]), 'total': 8}}
 ```
 
 Print top 5 emojis in the chat for hike
@@ -51,8 +59,8 @@ Print top 5 emojis in the chat for hike
 ```
 ➜  chat-analyzer git:(master) ✗ python3 analyze.py --filename sample-hike.txt --entity emoji --common 5 --app hike
 Analyzed 31 messages
-{'Bar': {'top': {'👆': 1, '😁': 4, '😂': 3}, 'total': 8},
- 'Me': {'top': {'🏻': 5, '💦': 1, '😁': 2}, 'total': 8}}
+{'Bar': {'top': OrderedDict([('😁', 4), ('😂', 3), ('👆', 1)]), 'total': 8},
+ 'Foo': {'top': OrderedDict([('🏻', 5), ('😁', 2), ('💦', 1)]), 'total': 8}}
  ```
 
 ## TODO
